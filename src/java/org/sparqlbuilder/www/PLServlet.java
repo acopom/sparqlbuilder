@@ -83,22 +83,19 @@ public class PLServlet extends HttpServlet {
         String uri = request.getQueryString();
         System.out.println(uri);
         
-        HttpSession session = request.getSession();
+        //HttpSession session = request.getSession();
                 
-        //QueryPathGenerator qpg = new QueryPathGenerator(ep);
-        //SClass[] classes = qpg.getClasses(null);
-        //qpg.setClassLabels(classes);
         if ( ep == null || st == null || en == null){
             return;
         }
         
         String epcr = ep.split("//")[1].replace("/", "_").replace("#", "-").concat(".cl");
         File epcrfile = new File("./cc/".concat(epcr));
-        File cl2file = new File("./cctmp/cl2.txt");
-        Set<String> cl = new HashSet<String>();
-        Set<String> cr = new HashSet<String>();
-        Map<String, String> clabels = new HashMap<String, String>();
-        Map<String, Integer> cent = new HashMap<String, Integer>();
+        File clfile = new File("./cc/cl.txt");
+        Set<String> cl = new HashSet<>();
+        Set<String> cr = new HashSet<>();
+        Map<String, String> clabels = new HashMap<>();
+        Map<String, Integer> cent = new HashMap<>();
         try{
             BufferedReader br = new BufferedReader(new FileReader(epcrfile));
             String buf;
@@ -109,11 +106,17 @@ public class PLServlet extends HttpServlet {
                 cr.add(buf);
             }
             br.close();
-            br = new BufferedReader(new FileReader(cl2file));
+            br = new BufferedReader(new FileReader(clfile));
             while( (buf = br.readLine()) != null){
                 String data[] = buf.split("\t");
-                clabels.put(data[1], data[0]);
-                cent.put(data[1], Integer.parseInt(data[2]));
+                String label = data[1];
+                if ( data[1].length() == 0 ){
+                        String data2[] = data[0].split("/");
+                        String data3[] = data2[data2.length - 1].split("#");
+                        label = data3[data3.length -1];                    
+                }
+                clabels.put(data[0], label);
+                cent.put(data[0], Integer.parseInt(data[3]));
             }
             br.close();
         }catch(IOException e){
@@ -136,11 +139,6 @@ public class PLServlet extends HttpServlet {
                 jsonstr += this.getJsonPathString(paths[i], clabels);
 	    }
 	    jsonstr += "]";
-        // For debug
-        /*
-        System.out.println("JSON:");
-        System.out.println(jsonstr);
-        */
             out.print(jsonstr);
         }
     }

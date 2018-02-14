@@ -2,10 +2,6 @@ package org.sparqlbuilder.core;
 
 import java.util.*;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * 起点となるリソースから逐次的に複数リンクで終点リソースまで接続される一つのパスを記述する
  * 

@@ -125,9 +125,9 @@ public class ClassGraph extends LabeledMultiDigraph implements Serializable{
             path.setMin(min);
             // using length of path
             //int rankwidth = (int) ( ( min * nsteps )/ crrpath.size() );
-            //path.setWidth(500000 - crrpath.size()*100000 - min);
-            double prob = computePrOfPath(path);
-            path.setWidth(prob);
+            path.setWidth(500000 - crrpath.size()*100000 - min);
+            //double prob = computePrOfPath(path);
+            //path.setWidth(prob);
             sortedpaths.add(path);
             j++;
         }
