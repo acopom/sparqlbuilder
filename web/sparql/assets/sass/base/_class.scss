@@ -1,0 +1,84 @@
+.clearfix,
+.cf {
+  @include clearfix;
+}
+
+a:hover img.hover,
+span:hover img.hover {
+  // filter: alpha(opacity=80);
+  opacity: 0.8;
+}
+
+img.b,
+.b {
+  display: block;
+}
+
+img.auto {
+  display: block;
+  margin: 0 auto;
+}
+
+
+.fR {
+  float: right;
+}
+
+.fL {
+  float: left;
+}
+
+.iL {
+  display: inline;
+  float: left;
+  margin: 0 10px 5px 0;
+}
+
+.iR {
+  display: inline;
+  float: right;
+  margin: 0 0 5px 10px;
+}
+
+.clear {
+  clear: both;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.half {
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+  @include fL;
+}
+
+.left {
+  @extend .half;
+}
+
+.right {
+  @extend .half;
+}
+
+.none{
+    display: none;
+}
+
+.block{
+    display: block;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+.inline{
+    display: inline;
+}

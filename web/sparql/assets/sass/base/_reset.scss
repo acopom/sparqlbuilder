@@ -1,0 +1,76 @@
+//Reset
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+figure, figcaption ,
+article, section, nav, header, footer{
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+form{
+  input, textarea{
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -o-box-sizing: border-box !important;
+    -ms-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+  }
+}
+body{
+  margin: 0;
+  padding: 0;
+  width:100%;
+  // -webkit-font-smoothing: antialiased;
+	// -moz-osx-font-smoothing: grayscale;
+  // -webkit-text-size-adjust: none;
+
+  // http://creator.dwango.co.jp/14128.html
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: unset;
+}
+// http://creator.dwango.co.jp/14128.html
+@media only screen and
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 2dppx) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+html {
+  width:100%;
+  overflow-y:scroll;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #000;  
+}
+
+ul,ol{
+  list-style: none;
+  list-style-position: inside;
+}
+
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+  empty-cells:show;
+  font-size:inherit;
+}

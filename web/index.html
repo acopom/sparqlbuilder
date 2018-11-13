@@ -1,20 +1,246 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>SPARQL Builder Project</title>
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-		<script src="https://d3js.org/d3.v3.min.js"></script>
-		<script type="text/javascript" src="http://uedayou.net/SPARQLTimeliner/js_sparql/sparql.js" charset="UTF-8"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-		<script src="./SparqlBuilder.js"></script>
-		<link rel="stylesheet" href="./SparqlBuilder.css" type="text/css" />
-	</head>
-	<body>
-		<div id="wrap" style="width:30%;">
-			<div id="SPARQLBUILDER">
-			</div>
-		</div>
-	</body>
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+
+    <head>
+        <meta charset="utf-8" />
+        <title>SPARQL Builder Project</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="./assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="./assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="./assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/css/override.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="./assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="./assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME LAYOUT STYLES -->
+
+        <style>
+        .btn.default.btn-outline{
+            cursor: default;
+        }
+        .btn.default.btn-outline:hover{
+            background-color: transparent;
+        }
+        </style>
+
+        <!--[if lt IE 9]>
+        <script src="./assets/js/jquery-1.12.4.min.js"></script>
+        <script src="./assets/js/html5.js"></script>
+        <script src="./assets/js/IE9.js"></script>
+        <![endif]-->
+        <!--[if gte IE 9]><!-->
+        <script src="./assets/js/jquery-2.2.4.min.js"></script>
+        <!--<![endif]-->
+
+
+    </head>
+    <!-- END HEAD -->
+
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-fixed">
+        <div class="page-wrapper">
+            <!-- BEGIN HEADER -->
+            <div class="page-header navbar navbar-fixed-top">
+                <!-- BEGIN HEADER INNER -->
+                <div class="page-header-inner ">
+                    <!-- BEGIN LOGO -->
+                    <div class="page-logo">
+                        <a href="index.html">
+                            <img src="./assets/images/common/logo.png" alt="SPARQL Builder" class="logo-default" />
+                        </a>
+                    </div>
+                    <!-- END LOGO -->
+                </div>
+                <!-- END HEADER INNER -->
+            </div>
+            <!-- END HEADER -->
+            <!-- BEGIN HEADER & CONTENT DIVIDER -->
+            <div class="clearfix"> </div>
+            <!-- END HEADER & CONTENT DIVIDER -->
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+                <!-- BEGIN SIDEBAR -->
+                <div class="page-sidebar-wrapper">
+                    <!-- BEGIN SIDEBAR -->
+                    <div class="page-sidebar navbar-collapse collapse">
+                        <!-- BEGIN SIDEBAR MENU -->
+                        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                            <li class="heading">
+                                <h3 class="uppercase">Documentation</h3>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="http://www.sparqlbuilder.org/doc/" target="_blank" class="nav-link">
+                                    <span class="title">information </span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item  ">
+                                <a href="http://www.sparqlbuilder.org/doc/how-to-use-sparql-builder-gui/" target="_blank" class="nav-link">
+                                    <span class="title">How to use GUI </span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="http://www.sparqlbuilder.org/doc/crawled-sparql-endpoint-list/" target="_blank" class="nav-link">
+                                    <span class="title">Crawled SPARQL Endpoint list</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item  ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <span class="title">Specifications</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item  ">
+                                        <a href="http://www.sparqlbuilder.org/doc/sbm_2015sep/" target="_blank" class="nav-link ">
+                                            <span class="title">SPARQL Builder Metadata (SBM) [version September 2015]</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="http://www.sparqlbuilder.org/doc/sbm/" target="_blank" class="nav-link ">
+                                            <span class="title">SPARQL Builder Metadata (SBM) [version May 2014]</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="http://www.sparqlbuilder.org/doc/sparql-queries-for-sparql-builder-metadata/" target="_blank" class="nav-link ">
+                                            <span class="title">SPARQL Queries for SPARQL Builder Metadata</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="http://www.sparqlbuilder.org/doc/sparql-builder-api-specification/" target="_blank" class="nav-link ">
+                                            <span class="title">SPARQL Buidler API</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item  ">
+                                <a href="http://www.sparqlbuilder.org/doc/use-cases/" target="_blank" class="nav-link">
+                                    <span class="title">Use Cases</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="http://www.sparqlbuilder.org/doc/publications/" target="_blank" class="nav-link">
+                                    <span class="title">Publications</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- END SIDEBAR -->
+                </div>
+                <!-- END SIDEBAR -->
+
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+                    <div class="page-content">
+                        <!-- BEGIN PAGE HEADER-->
+                        <!-- BEGIN PAGE TITLE-->
+                        <h1 class="page-title" style="text-align:center;">
+                            <img src="./assets/images/common/sblogo.png" alt="SPARQL Builder">
+                            <div>
+                                SPARQL Builder is a web-based tool by which users with no knowledge of SPARQL can generate SPARQL queries for biological databases and retrieve results satisfying their requirement.
+                            </div>
+                        </h1>
+                        <div class="clearfix"> </div>
+                        <!-- END PAGE TITLE-->
+                        <!-- END PAGE HEADER-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class=" icon-layers font-green"></i>
+                                    <span class="caption-subject font-green bold uppercase">Try SPARQL Builder!</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body form">
+
+
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <a href="./sparql/" class="btn blue btn-block btn-sparql-open">Open SPARQL Builder</a>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button type="button" class="btn blue btn-block btn-sparql-sample js-openSample" data-ep='https://www.ebi.ac.uk/rdf/services/sparql' data-st='http://www.biopax.org/release/biopax-level3.owl#Protein' data-en='http://www.biopax.org/release/biopax-level3.owl#Pathway'>Try with Sample</button>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button type="button" class="btn blue btn-block btn-sparql-send js-sendSPARQL">Send SPARQL</button>
+                                    </div>
+                                    <!-- <div class="col-xs-3">
+                                        <button type="button" class="btn blue btn-block btn-sparql-download js-downloadResult">Download Result</button>
+                                    </div> -->
+                                </div>
+
+
+                                    <div class="form-body">
+
+                                        <div class="form-group">
+                                            <label>SPARQL</label>
+                                            <p class="help-block js-sparql-help" style="display:none;"> The previous SPARQL is displayed. </p>
+                                            <textarea class="form-control js-sparql-query" rows="20"></textarea>
+                                        </div>
+
+                                    </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CONTENT BODY -->
+                </div>
+                <!-- END CONTENT -->
+            </div>
+            <!-- END CONTAINER -->
+            <!-- BEGIN FOOTER -->
+            <div class="page-footer">
+                <div class="page-footer-inner">
+                    <b>SPARQL Builder Project</b> 2014, 2015 <a href="contact.html">Contact us</a>
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+            </div>
+            <!-- END FOOTER -->
+        </div>
+        <!--[if lt IE 9]>
+<script src="./assets/global/plugins/respond.min.js"></script>
+<script src="./assets/global/plugins/excanvas.min.js"></script>
+<script src="./assets/global/plugins/ie8.fix.min.js"></script>
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="./assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="./assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="./assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="./assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="./assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="./assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="./assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="./assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="./assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
+        <script src="./assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+        <script src="./assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+
+
+        <script src="./assets/js/sparql.home.js"></script>
+    </body>
+
 </html>

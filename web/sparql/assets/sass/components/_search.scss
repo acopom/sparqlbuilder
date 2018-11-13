@@ -1,0 +1,104 @@
+.search
+{
+    .search_box
+    {
+        .search_ttl
+        {
+            display: block;
+            font-weight: bold;
+            color: #1c5ca4;
+
+            @extend .clear;
+            @include fs(18);
+        }
+        .search_ttl--brown
+        {
+            color: #ae7209;
+        }
+        .search_wrap{
+            @include clearfix;
+        }
+        input
+        {
+            float: left;
+            box-sizing: border-box;
+            width: calc(100% - 125px);
+            padding: 15px;
+
+            font-family: FontAwesome;
+               font-style: normal;
+               font-weight: normal;
+               text-decoration: inherit;
+               font-size: 14px;
+        }
+        button{
+            float: right;
+            cursor: pointer;
+            width: 120px;
+            background-color: #1c5ca4;
+            color: #fff;
+            font-weight: bold;
+            padding: 15px 10px;
+            border: none;
+            font-size: 14px;
+            &:hover{
+                background-color: rgba(#1c5ca4, 0.8);
+            }
+        }
+    }
+    .search_data
+    {
+        padding: 15px 0;
+        clear: both;
+        ul
+        {
+            .search_data_list
+            {
+                // min-height: 88px;
+                padding: 20px 10px;
+                display: block;
+
+                // @include left;
+
+                .search_data_title
+                {
+                    font-weight: bold;
+                    display: inline-block;
+                }
+
+                .search_data_link{
+                    display: block;
+                    word-wrap: break-word;
+                    word-break : break-all;
+                    font-size:12px;
+                    &.search_data_link-class{
+                        word-break : break-all;
+                        word-wrap: break-word;
+                        color: #444;
+                    }
+                }
+
+                &:nth-child(even)
+                {
+                    background: #f2f8ff;
+                }
+
+                &:hover,
+                &.active
+                {
+                    cursor: pointer;
+
+                    outline: 1px solid #00ea3d;
+                }
+            }
+
+            .search_data_list--pink
+            {
+                &:nth-child(even)
+                {
+                    background: #fcf8f1;
+                }
+            }
+        }
+    }
+}

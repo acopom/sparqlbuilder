@@ -1,0 +1,52 @@
+.path
+{
+    font-weight: bold;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px 20px;
+
+    background: #f2f8ff;
+
+    @include cf;
+
+    .path__numbers
+    {
+        display: inline-block;
+
+        color: #e38c00;
+    }
+
+    .path__permalink
+    {
+        @include fR;
+
+        a
+        {
+            text-decoration: underline;
+            display: inline !important;
+            color: #2164cb;
+        }
+        i
+        {
+            margin-right: 5px;
+
+            color: #000;
+        }
+        .path__permalink-text{
+            @include fs(8);
+            // padding: 2px 5px;
+            margin-left: 5px;
+            width:1px;
+            border: none;
+            outline: none !important;
+            background-color: transparent;
+            &:focus{
+                border: none;
+                outline: none !important;
+                background-color: transparent;
+                pointer-events: none;
+            }
+        }
+    }
+}

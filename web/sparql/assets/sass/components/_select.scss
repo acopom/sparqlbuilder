@@ -1,0 +1,124 @@
+.select
+{
+    .data_tbl
+    {
+        @include cf;
+
+        table
+        {
+            th
+            {
+                font-weight: bold;
+                white-space:nowrap;
+                box-sizing: border-box;
+                width: 15%;
+                padding: 10px 0 ;
+
+                text-align: right;
+
+                .tbl_left
+                {
+                    color: #1c5ca4;
+                }
+
+                .tbl_left--brown
+                {
+                    color: #ae7209;
+                }
+            }
+
+            td
+            {
+                font-weight: bold;
+
+                box-sizing: border-box;
+                width: 85%;
+                padding: 10px 20px;
+            }
+        }
+    }
+
+    .select_inner
+    {
+        font-weight: bold;
+
+        box-sizing: border-box;
+        width: 100%;
+        padding: 20px;
+
+        .light_green
+        {
+            color: #48b77f;
+        }
+        .node_list
+        {
+            padding: 20px 0;
+            @include cf;
+
+            display: table;
+            width: 100%;
+
+            .node_list_item
+            {
+                cursor: pointer;
+                display: table-row;
+
+                &:hover,
+                &.active,
+                {
+                    cursor: pointer;
+                    outline: 1px solid #00ea3d;
+                }
+
+                div{
+                    display: table-cell;
+                    padding: 10px 2px;
+                }
+
+                .node
+                {
+                    display: block;
+                    text-align: center;
+
+                    padding: 10px 10px;
+                    @include radius();
+                }
+
+                .node_dash
+                {
+                    display: block;
+                    text-align: center;
+
+                    // margin: 0 5px;
+
+                    color: #6e92c1;
+                }
+
+                .node_predicate{
+                    font-size: 12px;
+                    text-align: center;
+                    display: block;
+                    text-align: center;
+                }
+
+                .green
+                {
+                    background: #9fdfbf;
+                    font-size: 16px;
+                }
+
+                .blue
+                {
+                    background: #c3e0e6;
+                    font-size: 16px;
+                }
+
+                .gray
+                {
+                    background: #e1e1e1;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

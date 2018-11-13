@@ -1,0 +1,23 @@
+//common
+$space : 15px;
+$space-sp : 15px;
+
+//color
+$c-base : #000;
+$c-link : #000;
+
+// font
+$sans-seri : Helvetica Neue, Helvetica, Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, sans-seri;
+$serif : Georgia, 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, メイリオ, Meiryo, serif;
+$Normal : $sans-seri;
+
+//responsible
+$smartphone: "only screen and (max-width: 767px)";
+$desktop: "only screen and (min-width: 768px)";
+$middle: "only screen and (min-width: 768px) and (max-width: 1169px)"; // 1020 + 150
+$small: "only screen and (min-width: 768px) and (max-width: 991px)";
+
+$xs: "only screen and (max-width: 767px)";
+$sm: "only screen and (min-width: 768px) and (max-device-width: 991px)";
+$md: "only screen and (min-width: 992px) and (max-device-width: 1199px)";
+$lg: "only screen and (min-width: 1200px)";

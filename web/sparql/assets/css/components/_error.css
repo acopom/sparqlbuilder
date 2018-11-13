@@ -1,0 +1,5 @@
+.error.error_reload {
+  color: red;
+  text-decoration: underline; }
+  .error.error_reload:hover {
+    text-decoration: none; }

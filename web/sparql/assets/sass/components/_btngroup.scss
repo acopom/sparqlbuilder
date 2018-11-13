@@ -1,0 +1,66 @@
+.btn_group
+{
+    width: 370px;
+    margin: 0 auto 30px;
+
+    @include cf;
+
+    .node_btn
+    {
+        display: inline-block;
+        float: left;
+
+        width: 165px;
+        margin: 0 10px;
+        padding: 15px 0;
+
+        text-align: center;
+
+        border: 1px solid #f2f2f2;
+        background: #eee;
+        color: #aaa;
+
+        @include radius;
+
+        &.active{
+            border-color: #ddd;
+            background: #fff;
+            cursor: pointer;
+            a,
+            span
+            {
+                color: #404040;
+            }
+        }
+    }
+    .node_btn--prev
+    {
+        @extend .node_btn;
+        // width: 130px;
+        a,
+        span
+        {
+            i
+            {
+                padding-right: 30px;
+            }
+        }
+
+
+    }
+    .node_btn--next
+    {
+        cursor: pointer;
+        @extend .node_btn;
+        a,
+        span
+        {
+            // color: #404040;
+            i
+            {
+                padding-left: 35px;
+            }
+        }
+
+    }
+}

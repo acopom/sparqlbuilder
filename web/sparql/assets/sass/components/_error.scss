@@ -1,0 +1,13 @@
+.error{
+    text-align: center;
+    padding: 30px;
+
+    &.error_reload{
+        cursor: pointer;
+        color: red;
+        text-decoration: underline;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}

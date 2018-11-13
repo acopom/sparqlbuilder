@@ -1,0 +1,56 @@
+@mixin clearfix {
+  *zoom: 1;
+
+  &::before,
+  &::after {
+    content: " ";
+    display: block;
+    line-height: 0;
+  }
+
+  &::after {
+    // content: " ";
+    // display: block;
+    clear: both;
+  }
+}
+
+@mixin cf {
+  @include clearfix;
+}
+
+@mixin flex {
+    display: flex;
+    -js-display: flex;
+}
+
+// 右寄せ
+@mixin left {
+  @include flex;
+  justify-content: left;
+  align-items: center;
+}
+
+//size
+@mixin fs($size) {
+  font-size: $size+px;
+  font-size: ($size*000000.1)+rem;
+}
+
+//角丸
+@mixin radius ($topLeft: 10px, $topRight: 10px, $bottomRight: 10px, $bottomLeft: 10px) {
+  border-radius: $topLeft $topRight $bottomRight $bottomLeft !important;
+}
+
+@mixin fR {
+  float: right;
+}
+
+@mixin fL {
+  float: left;
+}
+@mixin fN {
+  float: none;
+}
+
+
